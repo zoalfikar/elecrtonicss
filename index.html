@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+
+<body>
+    <div id="app">
+        {{count}}
+    </div>
+    <script type="module">
+        import { createApp } from "./node_modules/vue/dist/vue.esm-browser.js" ; createApp({ data() { return { count: 0 } } }).mount("#app");
+    </script>
+</body>
+
+</html>
