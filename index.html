@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
 <body>
     <div id="app">
-        {{count}}
+        <div class="content">
+            <router-view></router-view>
+        </div>
+        <div class="navigate">
+            <button id="add-buying-process" @click="goto('/buying-process')">عملية شراء </button>
+        </div>
     </div>
-    <script type="module">
-        import { createApp } from "./node_modules/vue/dist/vue.esm-browser.js" ; createApp({ data() { return { count: 0 } } }).mount("#app");
+    <script src="assets/libraries/vue.js"></script>
+    <script src="assets/libraries/vue-router.js"></script>
+    <script src="appContent/index.mjs" type="module">
     </script>
 </body>
 

@@ -1,0 +1,14 @@
+.content {
+    position: absolute;
+    top: 10%;
+    width: 70%;
+    height: 80%;
+    border: 2px solid black;
+}
+
+
+/* form */
+
+textarea {
+    resize: none;
+}

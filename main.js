@@ -1,11 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-    // import { app, BrowserWindow } from "electron";
-    // import { path } from "path";
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 800,
+        width: 1200,
         height: 600,
 
         webPreferences: {
