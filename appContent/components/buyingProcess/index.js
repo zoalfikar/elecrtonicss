@@ -2,7 +2,7 @@ const comp = {
 
     data() {
         return {
-            totall: 2,
+            totall: 0,
             price: null,
             quantity: 0
         }
@@ -14,6 +14,7 @@ const comp = {
     },
     watch: {
         totall: function(nt, ot) {
+
             if (this.quantity !== 0) {
                 this.price = nt / this.quantity
             } else {
@@ -21,8 +22,8 @@ const comp = {
             }
         },
         quantity: function(nt, ot) {
-            if (this.quantity !== 0) {
-                this.price = nt / this.quantity
+            if (nt !== 0) {
+                this.price = this.totall / nt
             } else {
                 this.price = 0
             }

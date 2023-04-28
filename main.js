@@ -1,9 +1,10 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const fs = require("fs");
+const { ipcMain } = require('electron');
+
 var homaPagePath = '';
 let win;
-console.log(app);
 fs.readFile("electronics.json", (error, data) => {
     // if the reading process failed,
     // throwing the error
@@ -43,6 +44,10 @@ fs.readFile("electronics.json", (error, data) => {
 
     app.whenReady().then(() => {
         createWindow()
+
+        ipcMain.on('change-web-content', (event, data) => {
+            win.loadFile(data)
+        });
         app.on('activate', () => {
             if (BrowserWindow.getAllWindows().length === 0) {
                 createWindow()

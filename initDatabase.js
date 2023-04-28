@@ -1,8 +1,6 @@
 var mysql = require('mysql');
-
-// var main = require("./main");
-
-// console.log(main.t);
+const fs = require("fs");
+const { ipcRenderer } = require('electron');
 var con = mysql.createConnection({
     host: "localhost",
     user: 'root',
@@ -37,6 +35,35 @@ con.connect(function(err) {
             con2.query(sql, function(err, result) {
                 if (err) throw err;
                 console.log("Table created");
+                fs.readFile("electronics.json", (error, data) => {
+                    // if the reading process failed,
+                    // throwing the error
+                    if (error) {
+                        // logging the error
+                        console.error(error);
+
+                        throw err;
+                    }
+
+                    // parsing the JSON object
+                    // to convert it to a JavaScript object
+                    var info = JSON.parse(data);
+                    info.Initialized = "1";
+                    const dataUpdated = JSON.stringify(info);
+                    fs.writeFile("electronics.json", dataUpdated, (error) => {
+                        // throwing the error
+                        // in case of a writing problem
+                        if (error) {
+                            // logging the error
+                            console.error(error);
+
+                            throw error;
+                        }
+                        console.log("data.json written correctly");
+                        ipcRenderer.send('change-web-content', "index.html");
+                    });
+                });
+
             });
         });
     });

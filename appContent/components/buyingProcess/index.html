@@ -1,5 +1,5 @@
 <div>
-    <form action="">
+    <form>
         <div class="field">
             <label for="productName">المنتج</label>
             <input type="text" id="productName" placeholder="ادخل اسم المنتج">
@@ -12,17 +12,17 @@
             <label for="quantity">عدد القطع</label>
             <input type="number" id="quantity" v-model="quantity" @click="clearInput($event.target)">
         </div>
-        <div class="field">
+        <div class="field currency">
             <label for="totall">التكلفة الاجمالية </label>
-            <input type="number" id="totall" min="0" v-model="totall" @click="clearInput($event.target)"> <span>ل.س</span>
+            <input type="number" id="totall" min="0" v-model="totall" @click="clearInput($event.target)">
         </div>
-        <div class="field">
+        <div class="field currency">
             <label for="productPrice">سعر المنتج  </label>
-            <input type="number" id="productPrice" v-model="price" step="0.00001" min="0"> <span>ل.س</span>
+            <input type="number" id="productPrice" v-model="price" step="0.00001" min="0">
         </div>
         <div class="field">
             <label for="description"> معلومات اضافية </label>
-            <textarea id="description" cols="30" rows="10"></textarea>
+            <textarea id="description"></textarea>
         </div>
     </form>
 </div>
