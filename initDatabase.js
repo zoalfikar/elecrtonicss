@@ -1,10 +1,13 @@
 var mysql = require('mysql');
+
+// var main = require("./main");
+
+// console.log(main.t);
 var con = mysql.createConnection({
     host: "localhost",
     user: 'root',
     password: ''
 });
-
 con.connect(function(err) {
     if (err) throw err;
     con.query("CREATE DATABASE if not exists electronics", function(err, result) {

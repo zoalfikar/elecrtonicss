@@ -1,5 +1,4 @@
 const { contextBridge } = require('electron')
-
-// contextBridge.exposeInMainWorld('extra', {
-//     createApp: (options) => console.log(options)
-// })
+contextBridge.exposeInMainWorld('electronics', {
+    startInitialization: () => require('./initDatabase.js')
+})
